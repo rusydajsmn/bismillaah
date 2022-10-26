@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 
 const app = express();
-const port = 5500;
+const port = process.env.PORT(5500);
 
 //middlewares
 app.use(cors());
@@ -22,4 +22,4 @@ mongoose.connect(process.env.DB_URI, {
 }).then(() => console.log("Connected to the database!")).catch((err) => console.log(err));
 
 //start server
-app.listen(port, () => console.log("server running at http://localhost:${port}"));
+app.listen(port, () => console.log('server running at http://localhost:${port}'));
